@@ -1,0 +1,19 @@
+# This is my Module #8 Assignment for LIS4370
+# Rebekah Brouillette
+
+# Load Packages
+library(plyr)
+
+# Set working difrectory 
+setwd("C:/Users/btues/Documents/Rebekah Data Mining")
+
+# Read file into R
+Assign6 <- read.table("Assignment 6 Dataset-1.txt", header = TRUE, sep=",")
+Assign6
+
+# Separate students into sex and find average
+ddply(Assign6, "Sex", transform, Grade.Average = mean(Grade))
+
+# Convert to data frame with students with an "i" in their name
+i_students <- subset(Assign6, grepl("i", Assign6$Name, ignore.case = TRUE))
+
